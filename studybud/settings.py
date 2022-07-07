@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-xuh9d3nbpbkxkppa7zid-p@0ms^i%j1he%+9!^zq_q*v^3u80a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['praybuddy.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -73,20 +73,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'studybud.wsgi.application'
 
 
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # DATABASES = {
 #     'default' : dj_database_url.parse('postgres://bowajslvspjyrk:d29a616904bb2c036820e30cc545eddc965af587ff5a2f5aaf44a84404efd1bc@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dbu5of6sn313ms')
 # }
-
 
 
 # Password validation

@@ -6,16 +6,11 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['praybuddy.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['praybuddy.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -87,9 +82,9 @@ else:
     }
 
 
-# DATABASES = {
-#     'default' : dj_database_url.parse('postgres://bowajslvspjyrk:d29a616904bb2c036820e30cc545eddc965af587ff5a2f5aaf44a84404efd1bc@ec2-63-32-248-14.eu-west-1.compute.amazonaws.com:5432/dbu5of6sn313ms')
-# }
+
+
+
 
 
 # Password validation
